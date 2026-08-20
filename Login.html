@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ログイン | 採点ナビ</title>
+<meta name="description" content="採点ナビ にログインします。">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/assets/login.css">
+</head>
+<body class="auth-page">
+
+<main class="auth">
+  <header class="auth__head">
+    <h1 class="brand">採点ナビ<span class="brand__sub">Saiten-navi</span></h1>
+    <p class="auth__lead">登録済みのアカウントでログインしてください。</p>
+  </header>
+
+  <div class="auth__card">
+
+    <p class="auth__status" id="status" role="alert" aria-live="assertive" hidden></p>
+
+    <form id="loginForm" class="auth__form" novalidate>
+
+      <div class="field">
+        <label class="field__label" for="email">メールアドレス</label>
+        <input type="email" id="email" name="email"
+               autocomplete="username" inputmode="email"
+               autocapitalize="off" spellcheck="false"
+               placeholder="you@example.com"
+               aria-describedby="emailError" required autofocus>
+        <p class="field__error" id="emailError" hidden></p>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="password">パスワード</label>
+        <div class="field__wrap">
+          <input type="password" id="password" name="password"
+                 autocomplete="current-password"
+                 aria-describedby="passwordError" required>
+          <button type="button" class="field__toggle" id="togglePassword"
+                  aria-controls="password" aria-pressed="false">表示</button>
+        </div>
+        <p class="field__error" id="passwordError" hidden></p>
+      </div>
+
+      <label class="field field--check">
+        <input type="checkbox" id="remember">
+        <span>メールアドレスを次回も表示する</span>
+      </label>
+
+      <button type="submit" class="btn btn--primary" id="submitBtn">ログイン</button>
+    </form>
+
+    <noscript>
+      <p class="auth__note">ログインには JavaScript が必要です。ブラウザの設定で有効にしてください。</p>
+    </noscript>
+  </div>
+
+  <footer class="auth__foot">
+    <a class="auth__link" href="/">マークシート作成に戻る</a>
+  </footer>
+</main>
+
+<script src="/assets/login.js"></script>
+</body>
+</html>

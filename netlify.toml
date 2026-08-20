@@ -5,6 +5,17 @@
   publish = "."
   command = ""
 
+# /Login（および小文字の /login）でログイン画面を返す
+[[redirects]]
+  from = "/Login"
+  to = "/Login.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/Login.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

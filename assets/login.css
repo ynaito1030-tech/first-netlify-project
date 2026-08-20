@@ -1,0 +1,235 @@
+/* ============================================================
+   採点ナビ — ログイン画面
+   カード 1 枚を中央に置くだけの独立ページ。
+   配色トークンは assets/styles.css と揃えてある。
+   ============================================================ */
+
+:root {
+  --ink: #14181f;
+  --ink-soft: #5a6472;
+  --line: #d8dde5;
+  --bg: #eef1f6;
+  --panel-bg: #ffffff;
+  --accent: #1f5fd0;
+  --accent-ink: #ffffff;
+  --danger: #b3261e;
+  --danger-bg: #fdeceb;
+  --info-bg: #eef3fc;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.auth {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ---------- 見出し ---------- */
+
+.auth__head {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.brand {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: .04em;
+}
+
+.brand__sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .18em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.auth__lead {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ---------- カード ---------- */
+
+.auth__card {
+  background: var(--panel-bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 22px 22px;
+  box-shadow: 0 2px 14px rgba(20, 24, 31, .10);
+}
+
+/* ---------- 通知（エラー / 案内） ---------- */
+
+.auth__status {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  border: 1px solid var(--line);
+  background: var(--info-bg);
+  color: var(--ink);
+}
+
+.auth__status--error {
+  border-color: #f0c2be;
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ---------- 入力欄 ---------- */
+
+.field {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.field input[type="email"],
+.field input[type="text"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.field input:focus-visible,
+.btn:focus-visible,
+.field__toggle:focus-visible,
+.auth__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field__wrap {
+  position: relative;
+}
+.field__wrap input {
+  padding-right: 62px;
+}
+
+.field__toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 5px 8px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--ink-soft);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.field__toggle:hover { background: #f2f5fa; }
+
+.field__error {
+  margin: 5px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--danger);
+}
+
+.field--check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+.field--check input { accent-color: var(--accent); }
+
+/* ---------- ボタン ---------- */
+
+.btn {
+  width: 100%;
+  padding: 11px 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover { background: #f2f5fa; }
+
+.btn--primary {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn--primary:hover { background: #174dad; }
+
+.btn[disabled] {
+  opacity: .6;
+  cursor: default;
+}
+.btn--primary[disabled]:hover { background: var(--accent); }
+
+/* ---------- 補足 ---------- */
+
+.auth__note {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.auth__foot {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.auth__link {
+  font-size: 12px;
+  color: var(--accent);
+}
+
+/* ---------- 画面が狭いとき ---------- */
+
+@media screen and (max-width: 420px) {
+  .auth-page { padding: 20px 12px; }
+  .auth__card { padding: 20px 16px 18px; }
+}

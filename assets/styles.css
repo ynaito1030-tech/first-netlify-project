@@ -176,6 +176,8 @@ body {
   color: var(--ink-soft);
 }
 
+.panel__link { color: var(--accent); }
+
 /* ---------- プレビュー領域 ---------- */
 
 .preview {
