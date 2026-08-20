@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>採点ナビ | マークシート テンプレート</title>
+<meta name="description" content="採点ナビ - 選択肢（A〜E）式マークシートの印刷テンプレートを作成します。">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ===== 操作パネル（印刷されない） ===== -->
+<aside class="panel no-print">
+  <header class="panel__head">
+    <h1 class="brand">採点ナビ<span class="brand__sub">Saiten-navi</span></h1>
+    <p class="panel__lead">選択肢式マークシートのテンプレートを作成します。</p>
+  </header>
+
+  <div class="panel__body">
+    <section class="field-group">
+      <h2 class="field-group__title">試験情報</h2>
+
+      <label class="field">
+        <span class="field__label">試験名</span>
+        <input type="text" id="examTitle" value="定期テスト 解答用紙" maxlength="40">
+      </label>
+
+      <label class="field">
+        <span class="field__label">科目名</span>
+        <input type="text" id="examSubject" value="" placeholder="例）英語" maxlength="20">
+      </label>
+
+      <label class="field">
+        <span class="field__label">実施日</span>
+        <input type="text" id="examDate" value="" placeholder="例）2026年6月10日" maxlength="24">
+      </label>
+    </section>
+
+    <section class="field-group">
+      <h2 class="field-group__title">解答欄</h2>
+
+      <label class="field">
+        <span class="field__label">問題数 <b id="qCountOut">50</b> 問</span>
+        <input type="range" id="qCount" min="5" max="200" step="5" value="50">
+      </label>
+
+      <label class="field">
+        <span class="field__label">選択肢</span>
+        <select id="choiceCount">
+          <option value="2">2択（A・B）</option>
+          <option value="3">3択（A〜C）</option>
+          <option value="4">4択（A〜D）</option>
+          <option value="5" selected>5択（A〜E）</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field__label">選択肢の表記</span>
+        <select id="labelStyle">
+          <option value="alpha" selected>A B C D E</option>
+          <option value="alphaLower">a b c d e</option>
+          <option value="number">1 2 3 4 5</option>
+          <option value="maru">① ② ③ ④ ⑤</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field__label">段組み</span>
+        <select id="columnCount">
+          <option value="1">1段</option>
+          <option value="2" selected>2段</option>
+          <option value="3">3段</option>
+          <option value="4">4段</option>
+        </select>
+      </label>
+
+      <label class="field field--check">
+        <input type="checkbox" id="showLetters" checked>
+        <span>マーク内に記号を印字する</span>
+      </label>
+
+      <label class="field field--check">
+        <input type="checkbox" id="stripe" checked>
+        <span>5問ごとに区切り線を入れる</span>
+      </label>
+    </section>
+
+    <section class="field-group">
+      <h2 class="field-group__title">氏名欄・その他</h2>
+
+      <label class="field field--check">
+        <input type="checkbox" id="fClass" checked>
+        <span>クラス欄</span>
+      </label>
+      <label class="field field--check">
+        <input type="checkbox" id="fNumber" checked>
+        <span>出席番号欄</span>
+      </label>
+      <label class="field field--check">
+        <input type="checkbox" id="fName" checked>
+        <span>氏名欄</span>
+      </label>
+      <label class="field field--check">
+        <input type="checkbox" id="fScore" checked>
+        <span>得点欄</span>
+      </label>
+      <label class="field field--check">
+        <input type="checkbox" id="fMarkers" checked>
+        <span>読み取り用の位置合わせマーク</span>
+      </label>
+      <label class="field field--check">
+        <input type="checkbox" id="fKey">
+        <span>正答表（採点者用）を末尾に付ける</span>
+      </label>
+    </section>
+
+    <section class="field-group">
+      <h2 class="field-group__title">注意書き</h2>
+      <label class="field">
+        <span class="field__label">記入上の注意（1行1項目）</span>
+        <textarea id="notes" rows="4">HBまたはBの鉛筆で、はみ出さないように塗りつぶしてください。
+訂正するときは、消しゴムできれいに消してください。
+1つの問題につき、マークは1つだけです。
+用紙を折ったり汚したりしないでください。</textarea>
+      </label>
+    </section>
+  </div>
+
+  <footer class="panel__foot">
+    <button type="button" id="printBtn" class="btn btn--primary">印刷 / PDF保存</button>
+    <button type="button" id="resetBtn" class="btn">初期設定に戻す</button>
+    <p class="panel__hint">用紙サイズ A4 縦・余白なし（または「最小」）で印刷してください。</p>
+  </footer>
+</aside>
+
+<!-- ===== プレビュー兼 印刷対象 ===== -->
+<main class="preview" id="preview"></main>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

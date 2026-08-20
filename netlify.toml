@@ -1,0 +1,17 @@
+# 採点ナビ — マークシート テンプレート
+# ビルド不要の静的サイト。リポジトリ直下をそのまま公開する。
+
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
