@@ -1,0 +1,23 @@
+// まちのすいどうさん — Cloudflare Workers（静的アセット＋フォーム受付）
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "machi-suidou",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
+  "observability": { "enabled": true }
+
+  // ▼ お問い合わせメールを受け取るための設定（ドメインを Cloudflare に移し、
+  //   Email Routing で受信先アドレスを「確認済み」にしてから、コメントを外す）
+  // ,"send_email": [
+  //   { "name": "SEND_EMAIL", "destination_address": "info@example.com" }
+  // ],
+  // "vars": {
+  //   "MAIL_FROM": "form@example.com",
+  //   "MAIL_TO": "info@example.com"
+  // }
+}

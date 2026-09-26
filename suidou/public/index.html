@@ -194,9 +194,8 @@
         <p>お急ぎの方はお電話がはやいです</p>
         <a href="tel:0120000000" class="btn btn--tel btn--big">☎ 0120-000-000<small>通話無料・24時間うけつけ</small></a>
       </div>
-      <form class="form" name="contact" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="form__hp"><label>入力しないでください <input name="bot-field"></label></p>
+      <form class="form" name="contact" method="POST" action="/api/contact">
+        <p class="form__hp"><label>入力しないでください <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <label class="form__row"><span>お名前 <em>必須</em></span><input type="text" name="name" required autocomplete="name"></label>
         <label class="form__row"><span>電話番号 <em>必須</em></span><input type="tel" name="tel" required autocomplete="tel" inputmode="tel"></label>
         <label class="form__row"><span>ご住所（市区町村まで）</span><input type="text" name="address" autocomplete="address-level2"></label>
