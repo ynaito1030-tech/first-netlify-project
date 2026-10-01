@@ -34,6 +34,12 @@
 
   <!-- ===== ファーストビュー ===== -->
   <section class="hero">
+    <div class="hero__media" aria-hidden="true">
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
+        <source src="assets/hero.webm" type="video/webm">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="container hero__inner">
       <div class="hero__copy">
         <ul class="tags">
@@ -52,7 +58,6 @@
       </div>
 
       <div class="hero__ill" aria-hidden="true">
-        <div class="hero__blob"></div>
         <svg class="hero__char" viewBox="0 0 260 300">
           <ellipse cx="130" cy="285" rx="80" ry="10" fill="#9fd8f0"/>
           <path d="M130 20C130 20 40 130 40 190a90 90 0 0 0 180 0C220 130 130 20 130 20z" fill="#39b6ee"/>
@@ -224,6 +229,14 @@
   </div>
   <p class="footer__copy">&copy; まちのすいどうさん</p>
 </footer>
+
+<script>
+  // 動きを減らす設定の人には、背景動画を止めて最初のコマだけ見せる
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var v = document.querySelector('.hero__video');
+    if (v) { v.removeAttribute('autoplay'); v.pause(); }
+  }
+</script>
 
 <!-- スマホ用 固定ボタン -->
 <div class="fixed-cta">

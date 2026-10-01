@@ -3,6 +3,7 @@
 Cloudflare Workers で公開する水道工事店のホームページです。
 
 - `public/` … ページ本体（HTML / CSS）。そのまま配信されます
+- `public/assets/hero.webm` `hero.mp4` `poster.jpg` … 最初の画面の背景動画（いまは仮の動画）
 - `src/worker.js` … お問い合わせフォーム（`/api/contact`）を受け取り、メールで知らせます
 - `wrangler.jsonc` … Cloudflare の設定
 
@@ -27,6 +28,13 @@ Cloudflare Workers で公開する水道工事店のホームページです。
    - `destination_address` / `MAIL_TO`：受け取るアドレス（確認済みのもの）
    - `MAIL_FROM`：送信元。Email Routing を設定したドメインのアドレス（例：`form@あなたのドメイン`）
 4. GitHub にプッシュすると自動で反映されます
+
+## 背景動画の差し替え
+
+`public/assets/` の3つのファイルを同じ名前で置きかえます。
+
+- `hero.mp4`（Safari 用）と `hero.webm`（Chrome・Firefox 用）：音なし、10〜20秒、横長。ファイルは数MBまでに
+- `poster.jpg`：動画を読みこむまでに見せる画像（動画の最初のコマ）
 
 ## 手元での確認
 

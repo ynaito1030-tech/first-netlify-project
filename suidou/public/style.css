@@ -57,7 +57,16 @@ img, svg { display: block; max-width: 100%; }
 
 /* ---------- ファーストビュー ---------- */
 .hero { position: relative; background: var(--sky); overflow: hidden; }
-.hero__inner { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 30px; padding: 30px 0 120px; }
+/* 背景動画：左から白くぼかして文字を読みやすくする */
+.hero__media { position: absolute; inset: 0; z-index: 0; }
+.hero__video { width: 100%; height: 100%; object-fit: cover; }
+.hero__media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(239, 250, 255, .96) 0%, rgba(239, 250, 255, .88) 34%, rgba(239, 250, 255, .25) 62%, rgba(239, 250, 255, 0) 80%),
+    linear-gradient(180deg, rgba(239, 250, 255, .7) 0%, rgba(239, 250, 255, 0) 22%);
+}
+.hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 30px; padding: 30px 0 120px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tags li { background: #fff; border: 2px solid var(--blue); color: var(--blue); border-radius: 999px; padding: 2px 14px; font-weight: 800; font-size: 14px; }
 .hero__title { font-size: clamp(30px, 4.2vw, 48px); line-height: 1.4; font-weight: 800; margin: 20px 0; }
@@ -67,14 +76,13 @@ img, svg { display: block; max-width: 100%; }
 .hero__btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
 
 .hero__ill { position: relative; height: 420px; }
-.hero__blob { position: absolute; inset: 10px 0 0 20px; background: var(--sky-2); border-radius: 46% 54% 60% 40% / 50% 45% 55% 50%; }
-.hero__char { position: absolute; left: 50%; top: 50%; width: 260px; transform: translate(-45%, -48%); animation: bob 3.5s ease-in-out infinite; }
+.hero__char { position: absolute; left: 50%; top: 50%; width: 260px; filter: drop-shadow(0 14px 24px rgba(20, 110, 170, .25)); transform: translate(-45%, -48%); animation: bob 3.5s ease-in-out infinite; }
 @keyframes bob { 50% { transform: translate(-45%, -53%); } }
 .bubble { position: absolute; background: #fff; border-radius: 20px; padding: 10px 16px; font-weight: 800; font-size: 15px; line-height: 1.4; box-shadow: 0 6px 16px rgba(0, 0, 0, .08); }
 .bubble strong { color: var(--orange); font-size: 26px; }
 .bubble--a { left: 0; top: 40px; }
 .bubble--b { right: 0; top: 130px; }
-.hero__wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 80px; }
+.hero__wave { z-index: 1; position: absolute; bottom: -1px; left: 0; width: 100%; height: 80px; }
 
 @media (prefers-reduced-motion: reduce) { .hero__char { animation: none; } html { scroll-behavior: auto; } }
 
@@ -178,6 +186,7 @@ img, svg { display: block; max-width: 100%; }
 @media (max-width: 960px) {
   .nav { display: none; }
   .hero__inner { grid-template-columns: 1fr; padding-bottom: 90px; }
+  .hero__media::after { background: linear-gradient(180deg, rgba(239, 250, 255, .94) 0%, rgba(239, 250, 255, .86) 55%, rgba(239, 250, 255, .2) 85%); }
   .hero__ill { height: 320px; max-width: 460px; width: 100%; margin: 0 auto; }
   .hero__char { width: 200px; }
   .trouble, .reason, .voice { grid-template-columns: repeat(2, 1fr); }
