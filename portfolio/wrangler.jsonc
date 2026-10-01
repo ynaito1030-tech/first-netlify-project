@@ -1,10 +1,23 @@
-// ゆーすけのホームページ制作 — Cloudflare Workers（静的サイト）
+// ゆーすけのホームページ制作 — Cloudflare Workers（静的サイト＋相談フォーム）
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "yusuke-web",
+  "main": "src/worker.js",
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./public",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
-  }
+  },
+  "observability": { "enabled": true }
+
+  // ▼ 相談フォームの内容をメールで受け取るための設定
+  //   （ドメインを Cloudflare に置き、Email Routing で受け取るアドレスを「確認済み」にしてから、コメントを外す）
+  // ,"send_email": [
+  //   { "name": "SEND_EMAIL", "destination_address": "受け取るアドレス@gmail.com" }
+  // ],
+  // "vars": {
+  //   "MAIL_FROM": "form@あなたのドメイン",
+  //   "MAIL_TO": "受け取るアドレス@gmail.com"
+  // }
 }
