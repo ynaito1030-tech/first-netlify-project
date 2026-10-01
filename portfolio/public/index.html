@@ -171,41 +171,25 @@
   <section class="section" id="price">
     <div class="wrap">
       <p class="eyebrow">PRICE</p>
-      <h2 class="title">料金プラン</h2>
-      <div class="plans">
-        <article class="plan">
-          <h3 class="plan__name">ライト</h3>
-          <p class="plan__price">30,000<small>円</small></p>
-          <p class="plan__days">公開まで 約7日</p>
-          <ul class="plan__list">
-            <li>縦に長い1ページ</li>
-            <li>お問い合わせ（フォームかLINE）</li>
-            <li>スマホ対応</li>
-          </ul>
-        </article>
-        <article class="plan plan--pick">
-          <p class="plan__badge">おすすめ</p>
-          <h3 class="plan__name">スタンダード</h3>
-          <p class="plan__price">60,000<small>円</small></p>
-          <p class="plan__days">公開まで 約14日</p>
-          <ul class="plan__list">
-            <li>トップ＋下のページ3つ</li>
-            <li>インスタ連携の施工事例</li>
-            <li>お問い合わせ（フォームかLINE）</li>
-          </ul>
-        </article>
-        <article class="plan">
-          <h3 class="plan__name">プレミアム</h3>
-          <p class="plan__price">90,000<small>円</small></p>
-          <p class="plan__days">公開まで 約21日</p>
-          <ul class="plan__list">
-            <li>スタンダードの内容すべて</li>
-            <li>背景動画</li>
-            <li>キャッチコピーと文章づくり</li>
-          </ul>
-        </article>
-      </div>
-      <p class="plans__common">どのプランにも、公開作業、ページの説明文の設定（かんたんなSEO対策）、公開から1か月間の文章・写真の差し替えが入っています。追加の料金がかかるときは、かならず作業の前に金額をお伝えします。</p>
+      <h2 class="title">料金</h2>
+      <article class="price">
+        <div class="price__main">
+          <p class="price__label">ホームページ制作</p>
+          <p class="price__num">90,000<small>円〜</small></p>
+          <p class="price__sub">ページ数や必要な機能をお聞きして、作る前にお見積りします。</p>
+        </div>
+        <ul class="price__list">
+          <li>トップページ＋下のページ</li>
+          <li>インスタ連携の施工事例</li>
+          <li>お問い合わせ（フォームかLINE）</li>
+          <li>スマホ対応</li>
+          <li>今のアドレスのままの切り替え</li>
+          <li>ページの説明文の設定（かんたんなSEO対策）</li>
+          <li>使い方と引き継ぎの資料</li>
+          <li>公開から1か月間の文章・写真の差し替え</li>
+        </ul>
+      </article>
+      <p class="plans__common">毎月の保守料はありません。かかるのはドメイン代（年に1,500円ほどから）だけです。追加の料金がかかるときは、かならず作業の前に金額をお伝えします。</p>
     </div>
   </section>
 
@@ -215,7 +199,7 @@
       <p class="eyebrow">FLOW</p>
       <h2 class="title">ご依頼の流れ</h2>
       <ol class="flow">
-        <li><span class="flow__n">01</span><h3>無料相談</h3><p>どんなお店か、誰に来てほしいかをお聞きします。</p></li>
+        <li><span class="flow__n">01</span><h3>メールで相談</h3><p>どんなお店か、誰に来てほしいかをお聞きします。</p></li>
         <li><span class="flow__n">02</span><h3>お見積り</h3><p>ページの構成と料金を、文字でお渡しします。</p></li>
         <li><span class="flow__n">03</span><h3>写真のご用意</h3><p>現場やお店の写真をスマホで撮って送ってください。</p></li>
         <li><span class="flow__n">04</span><h3>デザイン案</h3><p>画像で何案かお見せして、選んでいただきます。</p></li>
@@ -245,8 +229,11 @@
     <div class="wrap contact__inner">
       <p class="eyebrow eyebrow--light">CONTACT</p>
       <h2 class="contact__title">まずは、話を<br class="sp">聞かせてください。</h2>
-      <p class="contact__lead">相談は無料です。「ホームページって作ったほうがいい？」くらいの段階でも大歓迎です。</p>
-      <a href="#" class="btn btn--sun btn--lg">リベシティでDMする</a>
+      <p class="contact__lead">相談は無料です。「ホームページって作ったほうがいい？」くらいの段階でも大歓迎です。お店の名前と、気になっていることをメールでお送りください。</p>
+      <div class="contact__mail">
+        <p class="contact__mail-label">メールでのご相談</p>
+        <p class="contact__mail-addr">メールアドレスは準備中です</p>
+      </div>
     </div>
   </section>
 
@@ -260,7 +247,7 @@
 </footer>
 
 <!-- スマホ用 固定ボタン -->
-<div class="fixed-cta"><a href="#contact" class="btn btn--sun">無料で相談する</a></div>
+<div class="fixed-cta"><a href="#contact" class="btn btn--sun">メールで無料相談</a></div>
 
 <script>
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

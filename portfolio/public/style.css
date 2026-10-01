@@ -200,6 +200,22 @@ img { display: block; max-width: 100%; height: auto; }
 .work--sub .work__shots { order: 2; }
 .work--sub .work__body h3 { font-size: 26px; }
 
+
+/* 料金（ひとつだけ） */
+.price { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; background: var(--white); border: 2px solid var(--indigo); border-radius: 24px; padding: 48px 52px; box-shadow: 0 24px 50px rgba(43, 47, 143, .12); }
+.price__label { font-weight: 700; color: var(--ink-soft); }
+.price__num { font-family: var(--font-en); font-weight: 700; font-size: clamp(56px, 8vw, 88px); line-height: 1.1; color: var(--indigo); font-variant-numeric: tabular-nums; }
+.price__num small { font-family: var(--font-body); font-size: .3em; color: var(--ink); margin-left: 4px; }
+.price__sub { font-size: 14px; color: var(--ink-soft); margin-top: 8px; }
+.price__list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; font-size: 15px; }
+.price__list li { padding-left: 1.6em; position: relative; }
+.price__list li::before { content: ""; position: absolute; left: 0; top: .55em; width: .9em; height: .5em; border-left: 2px solid var(--indigo); border-bottom: 2px solid var(--indigo); transform: rotate(-45deg); }
+
+/* 相談（メール） */
+.contact__mail { display: inline-block; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .2); border-radius: 18px; padding: 22px 30px; }
+.contact__mail-label { font-size: 13px; color: var(--sun); font-weight: 700; }
+.contact__mail-addr { font-family: var(--font-en), var(--font-body); font-size: clamp(20px, 3vw, 28px); font-weight: 700; margin-top: 4px; user-select: all; word-break: break-all; }
+
 /* スマホ用 固定ボタン */
 .fixed-cta { display: none; }
 
@@ -221,6 +237,7 @@ img { display: block; max-width: 100%; height: auto; }
   .site { width: 100%; }
   .update__arrow::before { width: 3px; height: 40px; }
   .plans { grid-template-columns: 1fr; max-width: 520px; }
+  .price { grid-template-columns: 1fr; gap: 28px; padding: 36px 32px; }
   .flow { grid-template-columns: 1fr; border-top: 0; border-left: 2px solid var(--ink); padding-left: 24px; gap: 22px; }
   .flow li { padding: 0; }
   .flow li::before { top: 6px; left: -32px; }
@@ -246,6 +263,9 @@ img { display: block; max-width: 100%; height: auto; }
   .reason--big .reason__key { grid-row: auto; }
   .work__shots { padding: 0 34px 40px 0; }
   .options { padding: 28px 22px; }
+  .price { padding: 28px 22px; }
+  .price__list { grid-template-columns: 1fr; }
+  .contact__mail { display: block; padding: 18px 20px; }
   .options dl > div { flex-direction: column; gap: 2px; }
   .btn--lg { width: 100%; padding: 18px 24px; }
   .facts__word { font-size: 13px; }
