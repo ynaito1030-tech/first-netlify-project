@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ホームページ イメージ選択ボード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@300;500;700;800&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&family=Noto+Serif+JP:wght@400;600&display=block" rel="stylesheet">
+<style>
+@page { size: A3 landscape; margin: 0; }
+:root { --indigo: #2b2f8f; --ink: #161a3a; --soft: #5a6080; --line: #d9deef; --paper: #f4f6fc; --sun: #ffb020; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 420mm; height: 297mm; }
+body { font-family: "Zen Kaku Gothic New", sans-serif; color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sheet { width: 420mm; height: 297mm; padding: 10mm 13mm 8mm; display: grid; grid-template-rows: auto 1fr auto; gap: 4mm; }
+
+/* 見出し */
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 10mm; border-bottom: 1.2mm solid var(--indigo); padding-bottom: 3.5mm; }
+.head h1 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 9mm; line-height: 1.1; letter-spacing: .02em; white-space: nowrap; }
+.head h1 small { display: block; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 3.4mm; letter-spacing: .3em; color: var(--indigo); margin-bottom: 2.5mm; }
+.head p { font-size: 3.5mm; color: var(--soft); max-width: 120mm; line-height: 1.6; }
+.fill { display: flex; gap: 6mm; }
+.fill div { width: 62mm; border-bottom: .3mm solid var(--ink); font-size: 3.2mm; padding-bottom: 1.5mm; color: var(--soft); }
+
+/* 行 */
+.rows { display: grid; grid-template-rows: 1.35fr .8fr .85fr 1.05fr .8fr; gap: 2.6mm; min-height: 0; overflow: hidden; }
+.row { display: grid; grid-template-columns: 46mm 1fr; gap: 4mm; min-height: 0; }
+.row__label { background: var(--indigo); color: #fff; border-radius: 3mm; padding: 4mm; display: flex; flex-direction: column; justify-content: center; }
+.row__label b { font-family: "Outfit", sans-serif; font-weight: 800; font-size: 9mm; line-height: 1; color: var(--sun); }
+.row__label span { font-weight: 700; font-size: 4.4mm; margin-top: 1.5mm; line-height: 1.35; }
+.row__label small { font-size: 2.8mm; opacity: .85; margin-top: 1.5mm; line-height: 1.4; }
+.opts { display: grid; gap: 3mm; min-height: 0; }
+.opts--6 { grid-template-columns: repeat(6, 1fr); }
+.opts--4 { grid-template-columns: repeat(4, 1fr); }
+.opt { border: .35mm solid var(--line); border-radius: 2.5mm; padding: 2mm; display: grid; grid-template-rows: 1fr auto; gap: 1.6mm; min-height: 0; overflow: hidden; }
+.opt__cap { display: flex; align-items: center; gap: 2mm; font-size: 3mm; line-height: 1.3; }
+.code { flex: none; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 3.4mm; color: var(--indigo); border: .35mm solid var(--indigo); border-radius: 1mm; padding: .2mm 1.4mm; }
+.check { flex: none; margin-left: auto; width: 4.6mm; height: 4.6mm; border: .35mm solid var(--ink); border-radius: 50%; }
+.opt__cap b { font-weight: 700; }
+
+/* 見本の箱 */
+.mock { position: relative; overflow: hidden; border-radius: 1.5mm; min-height: 0; container-type: size; background: #eee; }
+.mock * { position: absolute; }
+.mock .t i { position: static; }
+
+/* A：最初の画面 */
+.a1 { background: linear-gradient(160deg, #d8d2c8, #b9ad9c); }
+.a1 .p1 { right: 6%; top: 18%; width: 30cqw; height: 30cqw; border-radius: 50%; background: #3c4a6b; }
+.a1 .p2 { right: 20%; top: 10%; width: 12cqw; height: 12cqw; border-radius: 50%; background: #f3d9c0; }
+.a1 .fade { inset: 0; background: linear-gradient(90deg, rgba(255,255,255,.97) 0 34%, rgba(255,255,255,0) 70%); }
+.a1 .t { left: 7%; top: 34%; font: 700 7.4cqw/1.4 "Zen Kaku Gothic New"; color: #e07a2e; }
+.a2 { background: #f2f0ea; }
+.a2 .t { left: 6%; top: 12%; font: 400 15cqw/1.05 "Dela Gothic One"; color: #111; }
+.a2 .t i { font-style: normal; color: #ff4f2b; }
+.a3 { background: #f4efe6; }
+.a3 .sun { right: 10%; top: 18%; width: 34cqw; height: 34cqw; border-radius: 50%; background: #b8442f; }
+.a3 .t { right: 52%; top: 10%; writing-mode: vertical-rl; font: 700 8cqw/1.6 "Shippori Mincho"; letter-spacing: .15em; color: #2b2622; }
+.a4 { background: #0f2340; }
+.a4 .s1 { right: -14%; top: -20%; width: 52%; height: 150%; background: linear-gradient(160deg, #7a8ea8, #42566f); transform: skewX(-14deg); }
+.a4 .s2 { right: 40%; top: -10%; width: 4%; height: 130%; background: #ffc400; transform: skewX(-14deg); }
+.a4 .t { left: 7%; top: 18%; font: 400 7cqw/1.35 "Dela Gothic One"; color: #fff; white-space: nowrap; z-index: 2; }
+.a4 .t i { font-style: normal; color: #ffc400; }
+.a4 .n { left: 7%; bottom: 10%; font: 800 9cqw/1 "Outfit"; color: #ffc400; }
+.a5 { background: #fbfbf9; }
+.a5 .img { right: 0; top: 0; width: 44%; height: 100%; background: linear-gradient(180deg, #dcd6cc, #b9b0a2); }
+.a5 .t { left: 8%; top: 30%; font: 400 7.6cqw/1.7 "Noto Serif JP"; letter-spacing: .12em; color: #1d1d1d; }
+.a5 .r { left: 8%; bottom: 18%; width: 16%; height: 1px; background: #1d1d1d; }
+.a6 { background: #fff7ec; }
+.a6 .b { right: 4%; top: 16%; width: 38cqw; height: 34cqw; border-radius: 48% 52% 40% 60% / 55% 45% 55% 45%; background: #ffd8a8; }
+.a6 .f { right: 14%; top: 28%; width: 15cqw; height: 15cqw; border-radius: 50%; background: #fff; }
+.a6 .t { left: 7%; top: 26%; font: 700 7cqw/1.5 "Zen Maru Gothic"; color: #4a3a2c; z-index: 2; white-space: nowrap; }
+.a6 .t i { font-style: normal; color: #ff8a3d; }
+.a6 .btn { left: 7%; bottom: 14%; width: 30%; height: 12%; border-radius: 99px; background: #ff8a3d; }
+
+/* B：色 */
+.pal { display: grid; grid-template-columns: 70fr 25fr 5fr; background: none; }
+.pal * { position: static; }
+.pal span:nth-child(1) { border-radius: 1.5mm 0 0 1.5mm; }
+.pal span:nth-child(3) { border-radius: 0 1.5mm 1.5mm 0; }
+.pal span { display: block; }
+
+/* C：文字 */
+.font { background: var(--paper); display: grid; place-items: center; }
+.font * { position: static; }
+.font p { text-align: center; line-height: 1.3; color: var(--ink); }
+.c1 p { font: 400 7.5cqw "Dela Gothic One"; }
+.c2 p { font: 700 7.5cqw "Zen Kaku Gothic New"; }
+.c3 p { font: 700 7.5cqw "Shippori Mincho"; letter-spacing: .08em; }
+.c4 p { font: 700 7.5cqw "Zen Maru Gothic"; }
+.font small { display: block; font: 500 2.8cqw "Outfit"; letter-spacing: .2em; color: var(--soft); margin-top: 1.5cqw; }
+
+/* D：写真の見せ方 */
+.ph { background: var(--paper); }
+.ph img { object-fit: cover; border-radius: 1mm; }
+.d1 img:nth-child(1) { left: 6%; top: 10%; width: 28%; height: 38%; }
+.d1 img:nth-child(2) { left: 36%; top: 10%; width: 28%; height: 38%; }
+.d1 img:nth-child(3) { left: 66%; top: 10%; width: 28%; height: 38%; }
+.d1 img:nth-child(4) { left: 6%; top: 52%; width: 28%; height: 38%; }
+.d1 img:nth-child(5) { left: 36%; top: 52%; width: 28%; height: 38%; }
+.d1 img:nth-child(6) { left: 66%; top: 52%; width: 28%; height: 38%; }
+.d2 img { left: 12%; top: 10%; width: 76%; height: 70%; }
+.d2 .dots { left: 0; right: 0; bottom: 8%; display: flex; justify-content: center; gap: 2cqw; }
+.d2 .dots i { position: static; width: 2.4cqw; height: 2.4cqw; border-radius: 50%; background: var(--line); }
+.d2 .dots i:first-child { background: var(--indigo); }
+.d2 .arr { top: 34%; font: 700 7cqw "Outfit"; color: var(--indigo); }
+.d3 img { top: 14%; width: 41%; height: 66%; }
+.d3 img:nth-of-type(1) { left: 6%; filter: grayscale(1) brightness(.9); }
+.d3 img:nth-of-type(2) { right: 6%; }
+.d3 .lb { top: 3%; font: 800 3cqw "Outfit"; letter-spacing: .1em; color: var(--indigo); }
+.d3 .ar { left: 46.5%; top: 36%; font: 800 5cqw "Outfit"; color: var(--sun); }
+.d4 .phone { left: 8%; top: 8%; width: 30%; height: 84%; background: #0d0f2e; border-radius: 3mm; }
+.d4 .phone img { left: 8%; top: 18%; width: 84%; height: 50%; }
+.d4 .ar { left: 41%; top: 36%; font: 800 6cqw "Outfit"; color: var(--sun); }
+.d4 .grid img { width: 13%; height: 36%; }
+.d4 .tag { left: 8%; bottom: 14%; width: 30%; text-align: center; font: 700 3.2cqw "Zen Kaku Gothic New"; color: #ffb020; }
+
+/* E：お問い合わせ */
+.ic { background: var(--paper); display: grid; place-items: center; }
+.ic * { position: static; }
+.ic p { font: 700 6.4cqw "Zen Kaku Gothic New"; color: var(--indigo); text-align: center; line-height: 1.3; }
+.ic p small { display: block; font: 500 3.6cqw "Zen Kaku Gothic New"; color: var(--soft); margin-top: 1cqw; }
+
+/* 下 */
+.foot { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: stretch; }
+.memo { border: .35mm solid var(--line); border-radius: 2.5mm; padding: 2.5mm 4mm; font-size: 3.2mm; color: var(--soft); min-height: 13mm; }
+.brand { display: flex; align-items: center; gap: 3mm; font-weight: 700; font-size: 4.2mm; }
+.brand i { width: 7mm; height: 7mm; border-radius: 1.8mm; background: linear-gradient(135deg, var(--indigo) 0 55%, var(--sun) 55%); }
+.brand small { display: block; font: 500 2.8mm "Zen Kaku Gothic New"; color: var(--soft); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="head">
+    <div>
+      <h1><small>IMAGE SELECTION BOARD</small>ホームページ イメージ選択ボード</h1>
+    </div>
+    <p>各列から、いちばん近いものに ○ をつけてください。「AとCの間くらい」「ここだけ変えたい」なども、そのまま書きこんでください。</p>
+    <div class="fill"><div>お店・会社の名前</div><div>日付</div></div>
+  </header>
+
+  <div class="rows">
+
+    <!-- A 最初の画面 -->
+    <section class="row">
+      <div class="row__label"><b>A</b><span>最初の画面の<br>雰囲気</span><small>開いた瞬間の印象が決まります</small></div>
+      <div class="opts opts--6">
+        <div class="opt"><div class="mock a1"><i class="p1"></i><i class="p2"></i><i class="fade"></i><p class="t">写真・動画を<br>大きく見せる</p></div><p class="opt__cap"><span class="code">A01</span><b>写真＋白いぼかし</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock a2"><p class="t">言葉で<br><i>勝負</i>。</p></div><p class="opt__cap"><span class="code">A02</span><b>大きな文字</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock a3"><i class="sun"></i><p class="t">季節を、ひとくち。</p></div><p class="opt__cap"><span class="code">A03</span><b>和モダン・縦書き</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock a4"><i class="s1"></i><i class="s2"></i><p class="t">地図に残る<br>仕事を、<i>この手で。</i></p><p class="n">350件</p></div><p class="opt__cap"><span class="code">A04</span><b>力強い・実績の数字</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock a5"><i class="img"></i><p class="t">ととのう、<br>という贅沢。</p><i class="r"></i></div><p class="opt__cap"><span class="code">A05</span><b>高級感・ミニマル</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock a6"><i class="b"></i><i class="f"></i><p class="t">気軽に<br><i>相談</i>してね。</p><i class="btn"></i></div><p class="opt__cap"><span class="code">A06</span><b>やさしい・丸み</b><span class="check"></span></p></div>
+      </div>
+    </section>
+
+    <!-- B 色 -->
+    <section class="row">
+      <div class="row__label"><b>B</b><span>色の組み合わせ</span><small>ベース7：メイン2.5：アクセント0.5</small></div>
+      <div class="opts opts--6">
+        <div class="opt"><div class="mock pal"><span style="background:#ffffff;border:.3mm solid #ddd"></span><span style="background:#16a34a"></span><span style="background:#ffd23f"></span></div><p class="opt__cap"><span class="code">B01</span><b>白×緑　清潔・安心</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock pal"><span style="background:#f4f6fc"></span><span style="background:#1f3a8a"></span><span style="background:#ff8a00"></span></div><p class="opt__cap"><span class="code">B02</span><b>白×紺　誠実・信頼</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock pal"><span style="background:#15171c"></span><span style="background:#4a4f5c"></span><span style="background:#ffc400"></span></div><p class="opt__cap"><span class="code">B03</span><b>黒×黄　職人・力強さ</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock pal"><span style="background:#f4efe6"></span><span style="background:#2b2622"></span><span style="background:#b8442f"></span></div><p class="opt__cap"><span class="code">B04</span><b>生成り×墨　和・伝統</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock pal"><span style="background:#fff7ec"></span><span style="background:#ffb37a"></span><span style="background:#3aa776"></span></div><p class="opt__cap"><span class="code">B05</span><b>クリーム×オレンジ　親しみ</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock pal"><span style="background:#effaff"></span><span style="background:#1aa3e0"></span><span style="background:#ff8fa3"></span></div><p class="opt__cap"><span class="code">B06</span><b>水色×青　さわやか</b><span class="check"></span></p></div>
+      </div>
+    </section>
+
+    <!-- C 文字 -->
+    <section class="row">
+      <div class="row__label"><b>C</b><span>文字の雰囲気</span><small>見出しに使う文字です</small></div>
+      <div class="opts opts--4">
+        <div class="opt"><div class="mock font c1"><p>安心の電気工事。<small>BOLD</small></p></div><p class="opt__cap"><span class="code">C01</span><b>太く力強い</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock font c2"><p>安心の電気工事。<small>CLEAN</small></p></div><p class="opt__cap"><span class="code">C02</span><b>すっきり読みやすい</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock font c3"><p>安心の電気工事。<small>ELEGANT</small></p></div><p class="opt__cap"><span class="code">C03</span><b>上品・明朝</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock font c4"><p>安心の電気工事。<small>SOFT</small></p></div><p class="opt__cap"><span class="code">C04</span><b>やわらかい・丸文字</b><span class="check"></span></p></div>
+      </div>
+    </section>
+
+    <!-- D 写真の見せ方 -->
+    <section class="row">
+      <div class="row__label"><b>D</b><span>施工事例・写真の<br>見せ方</span><small>いちばん見てほしい部分です</small></div>
+      <div class="opts opts--4">
+        <div class="opt"><div class="mock ph d1"><img src="assets/insta-1.jpg" alt=""><img src="assets/insta-2.jpg" alt=""><img src="assets/insta-3.jpg" alt=""><img src="assets/insta-2.jpg" alt=""><img src="assets/insta-3.jpg" alt=""><img src="assets/insta-1.jpg" alt=""></div><p class="opt__cap"><span class="code">D01</span><b>たくさん並べる</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock ph d2"><img src="assets/insta-1.jpg" alt=""><span class="arr" style="left:3%">‹</span><span class="arr" style="right:3%">›</span><div class="dots"><i></i><i></i><i></i><i></i></div></div><p class="opt__cap"><span class="code">D02</span><b>1枚ずつ大きく</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock ph d3"><span class="lb" style="left:6%">BEFORE</span><span class="lb" style="right:6%">AFTER</span><img src="assets/insta-2.jpg" alt=""><span class="ar">→</span><img src="assets/insta-2.jpg" alt=""></div><p class="opt__cap"><span class="code">D03</span><b>ビフォー・アフター</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock ph d4"><div class="phone"><img src="assets/insta-1.jpg" alt=""></div><p class="tag">#施工事例</p><span class="ar">→</span><div class="grid"><img src="assets/insta-1.jpg" alt="" style="left:52%;top:14%"><img src="assets/insta-2.jpg" alt="" style="left:67%;top:14%"><img src="assets/insta-3.jpg" alt="" style="left:82%;top:14%"><img src="assets/insta-3.jpg" alt="" style="left:52%;top:54%"><img src="assets/insta-1.jpg" alt="" style="left:67%;top:54%"><img src="assets/insta-2.jpg" alt="" style="left:82%;top:54%"></div></div><p class="opt__cap"><span class="code">D04</span><b>インスタから自動で増える</b><span class="check"></span></p></div>
+      </div>
+    </section>
+
+    <!-- E お問い合わせ -->
+    <section class="row">
+      <div class="row__label"><b>E</b><span>お問い合わせの方法</span><small>いくつ選んでもOK</small></div>
+      <div class="opts opts--4">
+        <div class="opt"><div class="mock ic"><p>電話ボタン<small>スマホの画面下にずっと表示</small></p></div><p class="opt__cap"><span class="code">E01</span><b>電話</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock ic"><p>LINE<small>写真を送ってもらって相談</small></p></div><p class="opt__cap"><span class="code">E02</span><b>LINE公式</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock ic"><p>フォーム<small>内容がメールで届く</small></p></div><p class="opt__cap"><span class="code">E03</span><b>お問い合わせフォーム</b><span class="check"></span></p></div>
+        <div class="opt"><div class="mock ic"><p>地図・営業時間<small>お店に来てもらう</small></p></div><p class="opt__cap"><span class="code">E04</span><b>地図と営業時間</b><span class="check"></span></p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="foot">
+    <div class="memo">メモ（入れたい写真・載せたい工事・参考にしたいサイトなど）</div>
+    <div class="brand"><i></i><div>ゆーすけのホームページ制作<small>写真は実際の施工事例（電気のひらた。様）です</small></div></div>
+  </footer>
+
+</div>
+</body>
+</html>
