@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ホームページ制作 チラシ（リフォーム向け）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Outfit:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=block" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 0; }
+:root { --indigo: #2b2f8f; --deep: #1b1f5c; --ink: #161a3a; --soft: #5a6080; --line: #d9deef; --paper: #f4f6fc; --sun: #ffb020; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 210mm; height: 297mm; }
+body { font-family: "Zen Kaku Gothic New", sans-serif; color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; display: grid; grid-template-rows: auto auto auto 1fr auto; overflow: hidden; }
+.page > * { min-height: max-content; }
+
+/* 上：つかみ */
+.top { background: var(--paper); padding: 11mm 14mm 7mm; position: relative; overflow: clip; }
+.top::after { content: ""; position: absolute; right: -24mm; top: -30mm; width: 110mm; height: 110mm; border-radius: 50%; background: radial-gradient(circle, rgba(255,176,32,.28), rgba(255,176,32,0) 65%); }
+.eyebrow { position: relative; z-index: 1; display: flex; align-items: center; gap: 3mm; font-weight: 700; font-size: 3.6mm; color: var(--indigo); letter-spacing: .08em; }
+.eyebrow::before { content: ""; width: 9mm; height: .9mm; border-radius: 1mm; background: var(--sun); }
+h1 { position: relative; z-index: 1; font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 12.5mm; line-height: 1.2; margin: 3.5mm 0 3.5mm; }
+h1 .mark { color: var(--indigo); background: linear-gradient(transparent 64%, var(--sun) 64%, var(--sun) 90%, transparent 90%); }
+.lead { position: relative; z-index: 1; font-size: 4mm; line-height: 1.7; color: var(--soft); }
+.lead b { color: var(--ink); }
+
+/* お悩み */
+.worry { padding: 5mm 14mm 0; }
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; }
+.chips li { list-style: none; background: var(--paper); border-left: 1.2mm solid var(--sun); border-radius: 1.5mm; padding: 2.6mm 3mm; font-size: 3.3mm; font-weight: 700; line-height: 1.45; }
+.worry h2, .sec h2 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 5.6mm; margin-bottom: 3mm; }
+.voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+.voices li { list-style: none; background: var(--paper); border-radius: 3mm; padding: 3.5mm; font-size: 3.5mm; line-height: 1.55; }
+.voices b { color: var(--indigo); }
+
+/* しくみ */
+.how { margin: 6mm 14mm 0; background: var(--deep); color: #fff; border-radius: 4mm; padding: 5mm 7mm; display: grid; grid-template-columns: 1fr 78mm; gap: 7mm; align-items: center; }
+.how h2 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 6.6mm; line-height: 1.35; }
+.how h2 span { color: var(--sun); }
+.how p { font-size: 3.5mm; line-height: 1.7; color: #d7daf5; margin-top: 3mm; }
+.ba { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2mm; }
+.ba figure { background: #fff; border-radius: 2.5mm; padding: 1.5mm; }
+.ba svg { display: block; width: 100%; height: auto; border-radius: 1.5mm; }
+.ba figcaption { text-align: center; font: 800 2.8mm "Outfit"; letter-spacing: .15em; color: var(--ink); margin-top: 1mm; }
+.ba figure:last-child figcaption { color: var(--indigo); }
+.ba .tagline { grid-column: 1 / -1; text-align: center; font-size: 2.8mm; color: #d7daf5; }
+.ba .tagline b { color: var(--sun); }
+.flowpic { display: grid; grid-template-columns: 24mm auto 1fr; align-items: center; gap: 2.5mm; }
+.phone { background: #0d0f2e; border: .6mm solid #3a3f8a; border-radius: 3.5mm; padding: 1.5mm; }
+.phone img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2mm; }
+.phone p { font-size: 2.4mm; margin-top: 1mm; color: #fff; text-align: center; }
+.phone p b { color: var(--sun); }
+.arrow { color: var(--sun); font: 800 6mm "Outfit"; }
+.site { background: #fff; border-radius: 2.5mm; padding: 2mm; }
+.site p { color: var(--ink); font-weight: 700; font-size: 2.6mm; margin-bottom: 1.2mm; }
+.site div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1mm; }
+.site img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 1mm; }
+.site img:first-child { outline: .5mm solid var(--sun); }
+
+/* 特長 */
+.sec { padding: 6mm 14mm 0; }
+.points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3mm 6mm; }
+.point { display: grid; grid-template-columns: 11mm 1fr; gap: 3mm; align-items: start; }
+.point i { width: 11mm; height: 11mm; border-radius: 50%; background: var(--indigo); color: var(--sun); font: 800 5mm/11mm "Outfit"; text-align: center; font-style: normal; }
+.point h3 { font-size: 4.2mm; line-height: 1.4; }
+.point p { font-size: 3.2mm; line-height: 1.6; color: var(--soft); margin-top: .8mm; }
+
+/* 実績 */
+.work { display: grid; grid-template-columns: 52mm 1fr; gap: 5mm; align-items: center; margin-top: 4mm; padding-top: 4mm; border-top: .3mm solid var(--line); }
+.work img { width: 100%; border-radius: 2.5mm; display: block; }
+.work .tag { font-size: 3mm; font-weight: 700; color: var(--indigo); }
+.work h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 6mm; margin: 1mm 0 2mm; }
+.work p { font-size: 3.3mm; line-height: 1.65; color: var(--soft); }
+
+/* 下：相談 */
+.bottom { background: var(--deep); color: #fff; padding: 6mm 14mm 7mm; display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: center; }
+.bottom h2 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 7.4mm; line-height: 1.3; }
+.bottom p { font-size: 3.5mm; color: #d7daf5; margin-top: 2.5mm; line-height: 1.6; }
+.brand { display: flex; align-items: center; gap: 2.5mm; font-weight: 700; font-size: 4mm; margin-top: 3mm; }
+.brand i { width: 6.5mm; height: 6.5mm; border-radius: 1.6mm; background: linear-gradient(135deg, #fff 0 55%, var(--sun) 55%); }
+.qr { width: 30mm; text-align: center; }
+.qr div { width: 30mm; height: 30mm; background: #fff; border-radius: 2.5mm; display: grid; place-items: center; color: var(--soft); font-size: 3mm; line-height: 1.4; }
+.qr p { font-size: 3mm; margin-top: 2mm; color: #fff; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <section class="top">
+    <p class="eyebrow">リフォーム・工務店さんのホームページ制作</p>
+    <h1>ビフォー・アフターで、<br><span class="mark">選ばれる</span>。</h1>
+    <p class="lead">リフォーム会社を選ぶとき、お客さんがいちばん見るのは<b>施工事例</b>。<br>現場の写真をインスタに投稿するだけで、ホームページの事例が増えていきます。</p>
+  </section>
+
+  <section class="worry">
+    <ul class="chips">
+      <li>ホームページの施工事例が、何年も前のまま。</li>
+      <li>相見積もりで、価格だけで比べられてしまう。</li>
+      <li>いい仕事をしているのに、それが伝わっていない。</li>
+    </ul>
+  </section>
+
+
+  <section class="how">
+    <div>
+      <h2>ビフォー・アフターが、<br><span>勝手に増えていく。</span></h2>
+      <p>工事の前と後の写真に「#施工事例」と付けてインスタに投稿するだけ。1日1回、ホームページに自動で並びます。</p>
+    </div>
+    <div class="ba">
+      <figure><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#cfc8bb"/><rect y="62" width="120" height="28" fill="#a89a84"/><rect x="10" y="40" width="64" height="24" fill="#8f7f68"/><rect x="10" y="36" width="64" height="5" fill="#7a6b56"/><rect x="14" y="44" width="16" height="16" fill="#9d8d75"/><rect x="34" y="44" width="16" height="16" fill="#9d8d75"/><rect x="54" y="44" width="16" height="16" fill="#9d8d75"/><rect x="12" y="12" width="40" height="18" fill="#9b8f7c"/><rect x="84" y="14" width="26" height="30" fill="#b7c3c7" stroke="#8f8576" stroke-width="2"/><line x1="97" y1="14" x2="97" y2="44" stroke="#8f8576" stroke-width="2"/><circle cx="60" cy="8" r="3" fill="#e9d9a8"/></svg><figcaption>BEFORE</figcaption></figure>
+      <span class="arrow">→</span>
+      <figure><svg viewBox="0 0 120 90" aria-hidden="true"><rect width="120" height="90" fill="#f6f3ee"/><rect y="62" width="120" height="28" fill="#d9b88f"/><rect x="10" y="40" width="70" height="24" fill="#ffffff" stroke="#e3ddd3"/><rect x="8" y="35" width="74" height="6" fill="#2b2f8f"/><rect x="14" y="45" width="20" height="15" fill="#f1ede6"/><rect x="38" y="45" width="20" height="15" fill="#f1ede6"/><rect x="62" y="45" width="14" height="15" fill="#f1ede6"/><rect x="12" y="10" width="46" height="18" fill="#ffffff" stroke="#e3ddd3"/><rect x="86" y="10" width="26" height="38" fill="#cfe8f6" stroke="#ffffff" stroke-width="3"/><circle cx="30" cy="6" r="2.5" fill="#ffb020"/><circle cx="60" cy="6" r="2.5" fill="#ffb020"/><rect x="90" y="54" width="8" height="10" rx="2" fill="#4caf7a"/></svg><figcaption>AFTER</figcaption></figure>
+      <p class="tagline">投稿に <b>#施工事例</b> を付けるだけ（図はイメージです）</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>リフォーム屋さんに選ばれる理由</h2>
+    <div class="points">
+      <div class="point"><i>1</i><div><h3>事例を工事の種類ごとに整理</h3><p>キッチン・お風呂・外壁など、お客さんが探しやすく並べます。</p></div></div>
+      <div class="point"><i>2</i><div><h3>「地名×工事」で探されやすく</h3><p>「〇〇市 お風呂 リフォーム」のように地域の検索で見つけてもらう工夫をします。</p></div></div>
+      <div class="point"><i>3</i><div><h3>写真を送ってLINEで相談</h3><p>お客さんが現場の写真を送って、気軽に見積りの相談ができます。</p></div></div>
+      <div class="point"><i>4</i><div><h3>サーバー代がかからない</h3><p>毎月の保守料もなし。アドレスもデータも、ぜんぶお客さんの持ち物です。</p></div></div>
+    </div>
+
+    <div class="work">
+      <img src="assets/work-hirata.jpg" alt="電気のひらた。のホームページ">
+      <div>
+        <p class="tag">職人さんの実績 ／ 電気工事店（和歌山県橋本市）</p>
+        <h3>電気のひらた。</h3>
+        <p>アメブロからお店専用のホームページに。施工事例はインスタから自動で増え、毎月の固定費はワンコイン以下です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom">
+    <div>
+      <h2>まずは、話を聞かせてください。</h2>
+      <p>相談は無料です。今のホームページの見直しだけでも大歓迎。<br>右のQRコードから、相談フォームへどうぞ。</p>
+      <p class="brand"><i></i>ゆーすけのホームページ制作</p>
+    </div>
+    <div class="qr"><div>QRコード<br>（サイト公開後に<br>差し替え）</div><p>相談フォームはこちら</p></div>
+  </section>
+
+</div>
+</body>
+</html>
