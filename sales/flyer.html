@@ -72,7 +72,12 @@ h1 .mark { color: var(--indigo); background: linear-gradient(transparent 64%, va
 .brand i { width: 6.5mm; height: 6.5mm; border-radius: 1.6mm; background: linear-gradient(135deg, #fff 0 55%, var(--sun) 55%); }
 .qr { width: 30mm; text-align: center; }
 .qr div { width: 30mm; height: 30mm; background: #fff; border-radius: 2.5mm; display: grid; place-items: center; color: var(--soft); font-size: 3mm; line-height: 1.4; }
-.qr p { font-size: 3mm; margin-top: 2mm; color: #fff; }
+.qr img { display: block; width: 30mm; height: 30mm; background: #fff; border-radius: 2.5mm; padding: 1.2mm; }
+.qr p { font-size: 3mm; margin-top: 2mm; color: #fff; font-weight: 700; }
+.who { display: flex; align-items: center; gap: 6mm; margin-top: 3.5mm; }
+.bottom .who__name { font-weight: 700; font-size: 4.8mm; line-height: 1.2; color: #fff; margin: 0; }
+.bottom .who__name small { display: block; font-size: 2.8mm; font-weight: 500; color: #d7daf5; margin-top: .8mm; }
+.bottom .who__tel { font: 800 9mm/1 "Outfit", sans-serif; color: var(--sun); letter-spacing: .02em; font-variant-numeric: tabular-nums; margin: 0; }
 </style>
 </head>
 <body>
@@ -119,10 +124,10 @@ h1 .mark { color: var(--indigo); background: linear-gradient(transparent 64%, va
   <section class="bottom">
     <div>
       <h2>まずは、話を聞かせてください。</h2>
-      <p>相談は無料です。「作ったほうがいい？」くらいの段階でも大歓迎。<br>右のQRコードから、相談フォームへどうぞ。</p>
-      <p class="brand"><i></i>ゆーすけのホームページ制作</p>
+      <p>相談は無料です。「作ったほうがいい？」くらいの段階でも大歓迎。<br>お電話か、右のQRコードからLINEでどうぞ。</p>
+      <div class="who"><p class="who__name">内藤 雄介<small>ホームページ制作</small></p><p class="who__tel">090-4288-5212</p></div>
     </div>
-    <div class="qr"><div>QRコード<br>（サイト公開後に<br>差し替え）</div><p>相談フォームはこちら</p></div>
+    <div class="qr"><img src="assets/line-qr.jpg" alt="LINEのQRコード"><p>LINEで相談</p></div>
   </section>
 
 </div>
