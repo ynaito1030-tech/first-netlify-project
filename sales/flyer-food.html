@@ -72,14 +72,6 @@ h1 .mark { color: var(--indigo); background: linear-gradient(transparent 64%, va
 .point h3 { font-size: 4.2mm; line-height: 1.4; }
 .point p { font-size: 3.2mm; line-height: 1.6; color: var(--soft); margin-top: .8mm; }
 
-/* 実績（2つ並べ） */
-.works2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 3.5mm; padding-top: 3.5mm; border-top: .3mm solid var(--line); }
-.wk { display: grid; grid-template-columns: 34mm 1fr; gap: 3mm; align-items: center; }
-.wk img { width: 34mm; height: 22mm; object-fit: cover; object-position: top; border-radius: 2mm; display: block; }
-.wk .tag { font-size: 2.5mm; font-weight: 700; color: var(--indigo); line-height: 1.3; }
-.wk h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 3.9mm; margin: .6mm 0 1mm; line-height: 1.3; }
-.wk p:last-child { font-size: 2.8mm; line-height: 1.5; color: var(--soft); }
-.wk p b { color: var(--ink); }
 /* 実績 */
 .work { display: grid; grid-template-columns: 48mm 1fr; gap: 5mm; align-items: center; margin-top: 3.5mm; padding-top: 3.5mm; border-top: .3mm solid var(--line); }
 .work img { width: 100%; border-radius: 2.5mm; display: block; }
@@ -143,23 +135,13 @@ h1 .mark { color: var(--indigo); background: linear-gradient(transparent 64%, va
       <div class="point"><i>4</i><div><h3>毎月の掲載料がかからない</h3><p>サーバー代も保守料もなし。アドレスもデータも、お店の持ち物です。</p></div></div>
     </div>
 
-    <div class="works2">
-      <article class="wk">
-        <img src="assets/work-champion.jpg" alt="中華料理チャンピオン高野口店の見本サイト">
-        <div>
-          <p class="tag">見本サイト ／ 中華料理（橋本市高野口町）</p>
-          <h3>チャンピオン 高野口店</h3>
-          <p>写真つきメニュー、今日の営業、電話・地図ボタンを1ページに。インスタの投稿が自動で並びます。</p>
-        </div>
-      </article>
-      <article class="wk">
-        <img src="assets/work-hirata.jpg" alt="電気のひらた。のホームページ" style="object-position: left top">
-        <div>
-          <p class="tag">実績 ／ 電気工事店（和歌山県橋本市）</p>
-          <h3>電気のひらた。</h3>
-          <p>アメブロからお店専用のホームページに。<b>公開から9日目に、ホームページを見た方からご依頼</b>がありました。</p>
-        </div>
-      </article>
+    <div class="work">
+      <img src="assets/work-hirata.jpg" alt="電気のひらた。のホームページ">
+      <div>
+        <p class="tag">これまでの実績 ／ 電気工事店（和歌山県橋本市）</p>
+        <h3>電気のひらた。</h3>
+        <p>アメブロからお店専用のホームページに。<b>公開から9日目に、ホームページを見た方からご依頼</b>がありました。毎月の固定費はワンコイン以下です。</p>
+      </div>
     </div>
   </section>
 
